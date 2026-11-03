@@ -15,6 +15,10 @@ import { Route as ClientRouteImport } from './routes/client'
 import { Route as FonctionnalitesRouteImport } from './routes/fonctionnalites'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as ClientIndexRouteImport } from './routes/client.index'
+import { Route as ClientDocumentsRouteImport } from './routes/client.documents'
+import { Route as ClientSettingsRouteImport } from './routes/client.settings'
+import { Route as ClientCategoryCategoryRouteImport } from './routes/client.category.$category'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,39 +50,87 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClientIndexRoute = ClientIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ClientRoute,
+} as any)
+const ClientDocumentsRoute = ClientDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => ClientRoute,
+} as any)
+const ClientSettingsRoute = ClientSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => ClientRoute,
+} as any)
+const ClientCategoryCategoryRoute = ClientCategoryCategoryRouteImport.update({
+  id: '/category/$category',
+  path: '/category/$category',
+  getParentRoute: () => ClientRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
-  '/client': typeof ClientRoute
+  '/client': typeof ClientRouteWithChildren
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/client/documents': typeof ClientDocumentsRoute
+  '/client/settings': typeof ClientSettingsRoute
+  '/client/': typeof ClientIndexRoute
+  '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
-  '/client': typeof ClientRoute
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/client/documents': typeof ClientDocumentsRoute
+  '/client/settings': typeof ClientSettingsRoute
+  '/client': typeof ClientIndexRoute
+  '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
-  '/client': typeof ClientRoute
+  '/client': typeof ClientRouteWithChildren
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/client/documents': typeof ClientDocumentsRoute
+  '/client/settings': typeof ClientSettingsRoute
+  '/client/': typeof ClientIndexRoute
+  '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/a-propos' | '/client' | '/fonctionnalites' | '/login' | '/solutions'
+    | '/'
+    | '/a-propos'
+    | '/client'
+    | '/fonctionnalites'
+    | '/login'
+    | '/solutions'
+    | '/client/documents'
+    | '/client/settings'
+    | '/client/'
+    | '/client/category/$category'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/a-propos' | '/client' | '/fonctionnalites' | '/login' | '/solutions'
+    | '/'
+    | '/a-propos'
+    | '/fonctionnalites'
+    | '/login'
+    | '/solutions'
+    | '/client/documents'
+    | '/client/settings'
+    | '/client'
+    | '/client/category/$category'
   id:
     | '__root__'
     | '/'
@@ -87,12 +139,16 @@ export interface FileRouteTypes {
     | '/fonctionnalites'
     | '/login'
     | '/solutions'
+    | '/client/documents'
+    | '/client/settings'
+    | '/client/'
+    | '/client/category/$category'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
-  ClientRoute: typeof ClientRoute
+  ClientRoute: typeof ClientRouteWithChildren
   FonctionnalitesRoute: typeof FonctionnalitesRoute
   LoginRoute: typeof LoginRoute
   SolutionsRoute: typeof SolutionsRoute
@@ -142,13 +198,58 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/client/': {
+      id: '/client/'
+      path: '/'
+      fullPath: '/client/'
+      preLoaderRoute: typeof ClientIndexRouteImport
+      parentRoute: typeof ClientRoute
+    }
+    '/client/documents': {
+      id: '/client/documents'
+      path: '/documents'
+      fullPath: '/client/documents'
+      preLoaderRoute: typeof ClientDocumentsRouteImport
+      parentRoute: typeof ClientRoute
+    }
+    '/client/settings': {
+      id: '/client/settings'
+      path: '/settings'
+      fullPath: '/client/settings'
+      preLoaderRoute: typeof ClientSettingsRouteImport
+      parentRoute: typeof ClientRoute
+    }
+    '/client/category/$category': {
+      id: '/client/category/$category'
+      path: '/category/$category'
+      fullPath: '/client/category/$category'
+      preLoaderRoute: typeof ClientCategoryCategoryRouteImport
+      parentRoute: typeof ClientRoute
+    }
   }
 }
+
+interface ClientRouteChildren {
+  ClientDocumentsRoute: typeof ClientDocumentsRoute
+  ClientSettingsRoute: typeof ClientSettingsRoute
+  ClientIndexRoute: typeof ClientIndexRoute
+  ClientCategoryCategoryRoute: typeof ClientCategoryCategoryRoute
+}
+
+const ClientRouteChildren: ClientRouteChildren = {
+  ClientDocumentsRoute: ClientDocumentsRoute,
+  ClientSettingsRoute: ClientSettingsRoute,
+  ClientIndexRoute: ClientIndexRoute,
+  ClientCategoryCategoryRoute: ClientCategoryCategoryRoute,
+}
+
+const ClientRouteWithChildren =
+  ClientRoute._addFileChildren(ClientRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
-  ClientRoute: ClientRoute,
+  ClientRoute: ClientRouteWithChildren,
   FonctionnalitesRoute: FonctionnalitesRoute,
   LoginRoute: LoginRoute,
   SolutionsRoute: SolutionsRoute,
