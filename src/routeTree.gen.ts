@@ -16,10 +16,13 @@ import { Route as ClientRouteImport } from './routes/client'
 import { Route as FonctionnalitesRouteImport } from './routes/fonctionnalites'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminActivityRouteImport } from './routes/admin.activity'
 import { Route as AdminApprovedRouteImport } from './routes/admin.approved'
 import { Route as AdminFilesRouteImport } from './routes/admin.files'
 import { Route as AdminPendingRouteImport } from './routes/admin.pending'
 import { Route as AdminRejectedRouteImport } from './routes/admin.rejected'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as ClientIndexRouteImport } from './routes/client.index'
 import { Route as ClientDocumentsRouteImport } from './routes/client.documents'
 import { Route as ClientSettingsRouteImport } from './routes/client.settings'
@@ -60,6 +63,16 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminActivityRoute = AdminActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminApprovedRoute = AdminApprovedRouteImport.update({
   id: '/approved',
   path: '/approved',
@@ -78,6 +91,11 @@ const AdminPendingRoute = AdminPendingRouteImport.update({
 const AdminRejectedRoute = AdminRejectedRouteImport.update({
   id: '/rejected',
   path: '/rejected',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AdminRoute,
 } as any)
 const ClientIndexRoute = ClientIndexRouteImport.update({
@@ -109,28 +127,33 @@ export interface FileRoutesByFullPath {
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/activity': typeof AdminActivityRoute
   '/admin/approved': typeof AdminApprovedRoute
   '/admin/files': typeof AdminFilesRoute
   '/admin/pending': typeof AdminPendingRoute
   '/admin/rejected': typeof AdminRejectedRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/client/documents': typeof ClientDocumentsRoute
   '/client/settings': typeof ClientSettingsRoute
+  '/admin/': typeof AdminIndexRoute
   '/client/': typeof ClientIndexRoute
   '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
-  '/admin': typeof AdminRouteWithChildren
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/activity': typeof AdminActivityRoute
   '/admin/approved': typeof AdminApprovedRoute
   '/admin/files': typeof AdminFilesRoute
   '/admin/pending': typeof AdminPendingRoute
   '/admin/rejected': typeof AdminRejectedRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/client/documents': typeof ClientDocumentsRoute
   '/client/settings': typeof ClientSettingsRoute
+  '/admin': typeof AdminIndexRoute
   '/client': typeof ClientIndexRoute
   '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
@@ -143,12 +166,15 @@ export interface FileRoutesById {
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/activity': typeof AdminActivityRoute
   '/admin/approved': typeof AdminApprovedRoute
   '/admin/files': typeof AdminFilesRoute
   '/admin/pending': typeof AdminPendingRoute
   '/admin/rejected': typeof AdminRejectedRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/client/documents': typeof ClientDocumentsRoute
   '/client/settings': typeof ClientSettingsRoute
+  '/admin/': typeof AdminIndexRoute
   '/client/': typeof ClientIndexRoute
   '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
@@ -162,28 +188,33 @@ export interface FileRouteTypes {
     | '/fonctionnalites'
     | '/login'
     | '/solutions'
+    | '/admin/activity'
     | '/admin/approved'
     | '/admin/files'
     | '/admin/pending'
     | '/admin/rejected'
+    | '/admin/settings'
     | '/client/documents'
     | '/client/settings'
+    | '/admin/'
     | '/client/'
     | '/client/category/$category'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/a-propos'
-    | '/admin'
     | '/fonctionnalites'
     | '/login'
     | '/solutions'
+    | '/admin/activity'
     | '/admin/approved'
     | '/admin/files'
     | '/admin/pending'
     | '/admin/rejected'
+    | '/admin/settings'
     | '/client/documents'
     | '/client/settings'
+    | '/admin'
     | '/client'
     | '/client/category/$category'
   id:
@@ -195,12 +226,15 @@ export interface FileRouteTypes {
     | '/fonctionnalites'
     | '/login'
     | '/solutions'
+    | '/admin/activity'
     | '/admin/approved'
     | '/admin/files'
     | '/admin/pending'
     | '/admin/rejected'
+    | '/admin/settings'
     | '/client/documents'
     | '/client/settings'
+    | '/admin/'
     | '/client/'
     | '/client/category/$category'
   fileRoutesById: FileRoutesById
@@ -266,6 +300,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/activity': {
+      id: '/admin/activity'
+      path: '/activity'
+      fullPath: '/admin/activity'
+      preLoaderRoute: typeof AdminActivityRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/approved': {
       id: '/admin/approved'
       path: '/approved'
@@ -292,6 +340,13 @@ declare module '@tanstack/react-router' {
       path: '/rejected'
       fullPath: '/admin/rejected'
       preLoaderRoute: typeof AdminRejectedRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/client/': {
@@ -326,17 +381,23 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminActivityRoute: typeof AdminActivityRoute
   AdminApprovedRoute: typeof AdminApprovedRoute
   AdminFilesRoute: typeof AdminFilesRoute
   AdminPendingRoute: typeof AdminPendingRoute
   AdminRejectedRoute: typeof AdminRejectedRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminActivityRoute: AdminActivityRoute,
   AdminApprovedRoute: AdminApprovedRoute,
   AdminFilesRoute: AdminFilesRoute,
   AdminPendingRoute: AdminPendingRoute,
   AdminRejectedRoute: AdminRejectedRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminIndexRoute: AdminIndexRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
