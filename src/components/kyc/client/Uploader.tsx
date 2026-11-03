@@ -12,12 +12,12 @@ const selectCls =
 export function Uploader({ clientId, fixedCategory }: { clientId: string; fixedCategory?: CategoryId }) {
   const [category, setCategory] = useState<CategoryId>(fixedCategory ?? "identity");
   const cat = getCategory(fixedCategory ?? category)!;
-  const [docType, setDocType] = useState(cat.types[0].id);
+  const [docType, setDocType] = useState(cat.types[0]?.id ?? "");
   const [drag, setDrag] = useState(false);
   const [busy, setBusy] = useState(false);
   const input = useRef<HTMLInputElement>(null);
 
-  const typeValid = cat.types.some((t) => t.id === docType) ? docType : cat.types[0].id;
+  const typeValid = cat.types.some((t) => t.id === docType) ? docType : (cat.types[0]?.id ?? "");
 
   async function handle(list: FileList | File[]) {
     const files = Array.from(list);
@@ -53,7 +53,7 @@ export function Uploader({ clientId, fixedCategory }: { clientId: string; fixedC
               onChange={(e) => {
                 const c = e.target.value as CategoryId;
                 setCategory(c);
-                setDocType(getCategory(c)!.types[0].id);
+                setDocType(getCategory(c)!.types[0]?.id ?? "");
               }}
             >
               {CATEGORIES.map((c) => (

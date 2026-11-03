@@ -24,10 +24,10 @@ export interface KycDocument {
   size: number;
   uploadedAt: string;
   status: DocStatus;
-  reviewedAt?: string;
-  reviewer?: string;
-  rejectionReason?: string;
-  rejectionComment?: string;
+  reviewedAt?: string | undefined;
+  reviewer?: string | undefined;
+  rejectionReason?: string | undefined;
+  rejectionComment?: string | undefined;
   /** true when the actual file bytes are stored locally in IndexedDB */
   hasFile: boolean;
 }
@@ -40,7 +40,7 @@ export interface Activity {
   type: ActivityType;
   actor: string;
   clientId: string;
-  docId?: string;
+  docId?: string | undefined;
   message: string;
 }
 
@@ -62,7 +62,7 @@ export interface KycState {
 
 export interface Session {
   role: Role;
-  clientId?: string;
+  clientId?: string | undefined;
   name: string;
   email: string;
 }
