@@ -100,14 +100,14 @@ export function buildSeed(): KycState {
     ...c,
     id: `cli_${i + 1}`,
     ref: `KYC-${String(2401 + i * 7).padStart(5, "0")}`,
-    createdAt: at(JOINED_DAYS_AGO[i], 9, 15),
+    createdAt: at(JOINED_DAYS_AGO[i] ?? 30, 9, 15),
   }));
 
   const documents: KycDocument[] = [];
   const activity: Activity[] = [];
 
   DOCS.forEach(([ci, category, docType, fileName, up, status, rev, reason, comment], i) => {
-    const client = clients[ci];
+    const client = clients[ci]!;
     const id = `doc_${String(i + 1).padStart(3, "0")}`;
     const uploadedAt = at(up, 9 + (i % 8), (i * 13) % 60);
     const reviewedAt = rev !== undefined ? at(rev, 11 + (i % 6), (i * 7) % 60) : undefined;

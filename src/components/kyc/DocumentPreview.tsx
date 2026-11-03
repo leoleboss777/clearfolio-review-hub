@@ -7,7 +7,7 @@ import { FileIcon } from "./FileIcon";
 import { CheckCircle2, XCircle } from "lucide-react";
 
 /** Shows the locally stored file (image / PDF) or a stylised representation for demo data. */
-export function DocumentPreview({ doc, client }: { doc: KycDocument; client?: Client }) {
+export function DocumentPreview({ doc, client }: { doc: KycDocument; client?: Client | undefined }) {
   const [url, setUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(doc.hasFile);
 
@@ -76,7 +76,7 @@ export function DocumentPreview({ doc, client }: { doc: KycDocument; client?: Cl
   );
 }
 
-function MockSheet({ doc, client }: { doc: KycDocument; client?: Client }) {
+function MockSheet({ doc, client }: { doc: KycDocument; client?: Client | undefined }) {
   const title = docTypeLabel(doc.docType);
   const name = client ? `${client.lastName.toUpperCase()} ${client.firstName}` : "—";
   const isId = doc.category === "identity";
