@@ -11,10 +11,15 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ClientRouteImport } from './routes/client'
 import { Route as FonctionnalitesRouteImport } from './routes/fonctionnalites'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as AdminApprovedRouteImport } from './routes/admin.approved'
+import { Route as AdminFilesRouteImport } from './routes/admin.files'
+import { Route as AdminPendingRouteImport } from './routes/admin.pending'
+import { Route as AdminRejectedRouteImport } from './routes/admin.rejected'
 import { Route as ClientIndexRouteImport } from './routes/client.index'
 import { Route as ClientDocumentsRouteImport } from './routes/client.documents'
 import { Route as ClientSettingsRouteImport } from './routes/client.settings'
@@ -28,6 +33,11 @@ const IndexRoute = IndexRouteImport.update({
 const AProposRoute = AProposRouteImport.update({
   id: '/a-propos',
   path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ClientRoute = ClientRouteImport.update({
@@ -49,6 +59,26 @@ const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminApprovedRoute = AdminApprovedRouteImport.update({
+  id: '/approved',
+  path: '/approved',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFilesRoute = AdminFilesRouteImport.update({
+  id: '/files',
+  path: '/files',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPendingRoute = AdminPendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRejectedRoute = AdminRejectedRouteImport.update({
+  id: '/rejected',
+  path: '/rejected',
+  getParentRoute: () => AdminRoute,
 } as any)
 const ClientIndexRoute = ClientIndexRouteImport.update({
   id: '/',
@@ -74,10 +104,15 @@ const ClientCategoryCategoryRoute = ClientCategoryCategoryRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRouteWithChildren
   '/client': typeof ClientRouteWithChildren
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/approved': typeof AdminApprovedRoute
+  '/admin/files': typeof AdminFilesRoute
+  '/admin/pending': typeof AdminPendingRoute
+  '/admin/rejected': typeof AdminRejectedRoute
   '/client/documents': typeof ClientDocumentsRoute
   '/client/settings': typeof ClientSettingsRoute
   '/client/': typeof ClientIndexRoute
@@ -86,9 +121,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRouteWithChildren
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/approved': typeof AdminApprovedRoute
+  '/admin/files': typeof AdminFilesRoute
+  '/admin/pending': typeof AdminPendingRoute
+  '/admin/rejected': typeof AdminRejectedRoute
   '/client/documents': typeof ClientDocumentsRoute
   '/client/settings': typeof ClientSettingsRoute
   '/client': typeof ClientIndexRoute
@@ -98,10 +138,15 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRouteWithChildren
   '/client': typeof ClientRouteWithChildren
   '/fonctionnalites': typeof FonctionnalitesRoute
   '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
+  '/admin/approved': typeof AdminApprovedRoute
+  '/admin/files': typeof AdminFilesRoute
+  '/admin/pending': typeof AdminPendingRoute
+  '/admin/rejected': typeof AdminRejectedRoute
   '/client/documents': typeof ClientDocumentsRoute
   '/client/settings': typeof ClientSettingsRoute
   '/client/': typeof ClientIndexRoute
@@ -112,10 +157,15 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/a-propos'
+    | '/admin'
     | '/client'
     | '/fonctionnalites'
     | '/login'
     | '/solutions'
+    | '/admin/approved'
+    | '/admin/files'
+    | '/admin/pending'
+    | '/admin/rejected'
     | '/client/documents'
     | '/client/settings'
     | '/client/'
@@ -124,9 +174,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/a-propos'
+    | '/admin'
     | '/fonctionnalites'
     | '/login'
     | '/solutions'
+    | '/admin/approved'
+    | '/admin/files'
+    | '/admin/pending'
+    | '/admin/rejected'
     | '/client/documents'
     | '/client/settings'
     | '/client'
@@ -135,10 +190,15 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/a-propos'
+    | '/admin'
     | '/client'
     | '/fonctionnalites'
     | '/login'
     | '/solutions'
+    | '/admin/approved'
+    | '/admin/files'
+    | '/admin/pending'
+    | '/admin/rejected'
     | '/client/documents'
     | '/client/settings'
     | '/client/'
@@ -148,6 +208,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
+  AdminRoute: typeof AdminRouteWithChildren
   ClientRoute: typeof ClientRouteWithChildren
   FonctionnalitesRoute: typeof FonctionnalitesRoute
   LoginRoute: typeof LoginRoute
@@ -168,6 +229,13 @@ declare module '@tanstack/react-router' {
       path: '/a-propos'
       fullPath: '/a-propos'
       preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/client': {
@@ -197,6 +265,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/approved': {
+      id: '/admin/approved'
+      path: '/approved'
+      fullPath: '/admin/approved'
+      preLoaderRoute: typeof AdminApprovedRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/files': {
+      id: '/admin/files'
+      path: '/files'
+      fullPath: '/admin/files'
+      preLoaderRoute: typeof AdminFilesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/pending': {
+      id: '/admin/pending'
+      path: '/pending'
+      fullPath: '/admin/pending'
+      preLoaderRoute: typeof AdminPendingRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/rejected': {
+      id: '/admin/rejected'
+      path: '/rejected'
+      fullPath: '/admin/rejected'
+      preLoaderRoute: typeof AdminRejectedRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/client/': {
       id: '/client/'
@@ -229,6 +325,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminApprovedRoute: typeof AdminApprovedRoute
+  AdminFilesRoute: typeof AdminFilesRoute
+  AdminPendingRoute: typeof AdminPendingRoute
+  AdminRejectedRoute: typeof AdminRejectedRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminApprovedRoute: AdminApprovedRoute,
+  AdminFilesRoute: AdminFilesRoute,
+  AdminPendingRoute: AdminPendingRoute,
+  AdminRejectedRoute: AdminRejectedRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface ClientRouteChildren {
   ClientDocumentsRoute: typeof ClientDocumentsRoute
   ClientSettingsRoute: typeof ClientSettingsRoute
@@ -249,6 +361,7 @@ const ClientRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
+  AdminRoute: AdminRouteWithChildren,
   ClientRoute: ClientRouteWithChildren,
   FonctionnalitesRoute: FonctionnalitesRoute,
   LoginRoute: LoginRoute,
