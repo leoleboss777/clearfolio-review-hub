@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as FonctionnalitesRouteImport } from './routes/fonctionnalites'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const FonctionnalitesRoute = FonctionnalitesRouteImport.update({
   path: '/fonctionnalites',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/fonctionnalites': typeof FonctionnalitesRoute
+  '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/fonctionnalites': typeof FonctionnalitesRoute
+  '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,28 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/fonctionnalites': typeof FonctionnalitesRoute
+  '/login': typeof LoginRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/a-propos' | '/fonctionnalites' | '/solutions'
+  fullPaths: '/' | '/a-propos' | '/fonctionnalites' | '/login' | '/solutions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/a-propos' | '/fonctionnalites' | '/solutions'
-  id: '__root__' | '/' | '/a-propos' | '/fonctionnalites' | '/solutions'
+  to: '/' | '/a-propos' | '/fonctionnalites' | '/login' | '/solutions'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/fonctionnalites'
+    | '/login'
+    | '/solutions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   FonctionnalitesRoute: typeof FonctionnalitesRoute
+  LoginRoute: typeof LoginRoute
   SolutionsRoute: typeof SolutionsRoute
 }
 
@@ -92,6 +108,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FonctionnalitesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
@@ -106,6 +129,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   FonctionnalitesRoute: FonctionnalitesRoute,
+  LoginRoute: LoginRoute,
   SolutionsRoute: SolutionsRoute,
 }
 export const routeTree = rootRouteImport
