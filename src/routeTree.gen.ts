@@ -10,33 +10,243 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ClientRouteImport } from './routes/client'
+import { Route as FonctionnalitesRouteImport } from './routes/fonctionnalites'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminActivityRouteImport } from './routes/admin.activity'
+import { Route as AdminApprovedRouteImport } from './routes/admin.approved'
+import { Route as AdminFilesRouteImport } from './routes/admin.files'
+import { Route as AdminPendingRouteImport } from './routes/admin.pending'
+import { Route as AdminRejectedRouteImport } from './routes/admin.rejected'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as ClientIndexRouteImport } from './routes/client.index'
+import { Route as ClientDocumentsRouteImport } from './routes/client.documents'
+import { Route as ClientSettingsRouteImport } from './routes/client.settings'
+import { Route as ClientCategoryCategoryRouteImport } from './routes/client.category.$category'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientRoute = ClientRouteImport.update({
+  id: '/client',
+  path: '/client',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FonctionnalitesRoute = FonctionnalitesRouteImport.update({
+  id: '/fonctionnalites',
+  path: '/fonctionnalites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminActivityRoute = AdminActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminApprovedRoute = AdminApprovedRouteImport.update({
+  id: '/approved',
+  path: '/approved',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFilesRoute = AdminFilesRouteImport.update({
+  id: '/files',
+  path: '/files',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPendingRoute = AdminPendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRejectedRoute = AdminRejectedRouteImport.update({
+  id: '/rejected',
+  path: '/rejected',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ClientIndexRoute = ClientIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ClientRoute,
+} as any)
+const ClientDocumentsRoute = ClientDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => ClientRoute,
+} as any)
+const ClientSettingsRoute = ClientSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => ClientRoute,
+} as any)
+const ClientCategoryCategoryRoute = ClientCategoryCategoryRouteImport.update({
+  id: '/category/$category',
+  path: '/category/$category',
+  getParentRoute: () => ClientRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/client': typeof ClientRouteWithChildren
+  '/fonctionnalites': typeof FonctionnalitesRoute
+  '/login': typeof LoginRoute
+  '/solutions': typeof SolutionsRoute
+  '/admin/activity': typeof AdminActivityRoute
+  '/admin/approved': typeof AdminApprovedRoute
+  '/admin/files': typeof AdminFilesRoute
+  '/admin/pending': typeof AdminPendingRoute
+  '/admin/rejected': typeof AdminRejectedRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/client/documents': typeof ClientDocumentsRoute
+  '/client/settings': typeof ClientSettingsRoute
+  '/admin/': typeof AdminIndexRoute
+  '/client/': typeof ClientIndexRoute
+  '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/fonctionnalites': typeof FonctionnalitesRoute
+  '/login': typeof LoginRoute
+  '/solutions': typeof SolutionsRoute
+  '/admin/activity': typeof AdminActivityRoute
+  '/admin/approved': typeof AdminApprovedRoute
+  '/admin/files': typeof AdminFilesRoute
+  '/admin/pending': typeof AdminPendingRoute
+  '/admin/rejected': typeof AdminRejectedRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/client/documents': typeof ClientDocumentsRoute
+  '/client/settings': typeof ClientSettingsRoute
+  '/admin': typeof AdminIndexRoute
+  '/client': typeof ClientIndexRoute
+  '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/client': typeof ClientRouteWithChildren
+  '/fonctionnalites': typeof FonctionnalitesRoute
+  '/login': typeof LoginRoute
+  '/solutions': typeof SolutionsRoute
+  '/admin/activity': typeof AdminActivityRoute
+  '/admin/approved': typeof AdminApprovedRoute
+  '/admin/files': typeof AdminFilesRoute
+  '/admin/pending': typeof AdminPendingRoute
+  '/admin/rejected': typeof AdminRejectedRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/client/documents': typeof ClientDocumentsRoute
+  '/client/settings': typeof ClientSettingsRoute
+  '/admin/': typeof AdminIndexRoute
+  '/client/': typeof ClientIndexRoute
+  '/client/category/$category': typeof ClientCategoryCategoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/admin'
+    | '/client'
+    | '/fonctionnalites'
+    | '/login'
+    | '/solutions'
+    | '/admin/activity'
+    | '/admin/approved'
+    | '/admin/files'
+    | '/admin/pending'
+    | '/admin/rejected'
+    | '/admin/settings'
+    | '/client/documents'
+    | '/client/settings'
+    | '/admin/'
+    | '/client/'
+    | '/client/category/$category'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/fonctionnalites'
+    | '/login'
+    | '/solutions'
+    | '/admin/activity'
+    | '/admin/approved'
+    | '/admin/files'
+    | '/admin/pending'
+    | '/admin/rejected'
+    | '/admin/settings'
+    | '/client/documents'
+    | '/client/settings'
+    | '/admin'
+    | '/client'
+    | '/client/category/$category'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/admin'
+    | '/client'
+    | '/fonctionnalites'
+    | '/login'
+    | '/solutions'
+    | '/admin/activity'
+    | '/admin/approved'
+    | '/admin/files'
+    | '/admin/pending'
+    | '/admin/rejected'
+    | '/admin/settings'
+    | '/client/documents'
+    | '/client/settings'
+    | '/admin/'
+    | '/client/'
+    | '/client/category/$category'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  ClientRoute: typeof ClientRouteWithChildren
+  FonctionnalitesRoute: typeof FonctionnalitesRoute
+  LoginRoute: typeof LoginRoute
+  SolutionsRoute: typeof SolutionsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +258,175 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client': {
+      id: '/client'
+      path: '/client'
+      fullPath: '/client'
+      preLoaderRoute: typeof ClientRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fonctionnalites': {
+      id: '/fonctionnalites'
+      path: '/fonctionnalites'
+      fullPath: '/fonctionnalites'
+      preLoaderRoute: typeof FonctionnalitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/activity': {
+      id: '/admin/activity'
+      path: '/activity'
+      fullPath: '/admin/activity'
+      preLoaderRoute: typeof AdminActivityRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/approved': {
+      id: '/admin/approved'
+      path: '/approved'
+      fullPath: '/admin/approved'
+      preLoaderRoute: typeof AdminApprovedRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/files': {
+      id: '/admin/files'
+      path: '/files'
+      fullPath: '/admin/files'
+      preLoaderRoute: typeof AdminFilesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/pending': {
+      id: '/admin/pending'
+      path: '/pending'
+      fullPath: '/admin/pending'
+      preLoaderRoute: typeof AdminPendingRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/rejected': {
+      id: '/admin/rejected'
+      path: '/rejected'
+      fullPath: '/admin/rejected'
+      preLoaderRoute: typeof AdminRejectedRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/client/': {
+      id: '/client/'
+      path: '/'
+      fullPath: '/client/'
+      preLoaderRoute: typeof ClientIndexRouteImport
+      parentRoute: typeof ClientRoute
+    }
+    '/client/documents': {
+      id: '/client/documents'
+      path: '/documents'
+      fullPath: '/client/documents'
+      preLoaderRoute: typeof ClientDocumentsRouteImport
+      parentRoute: typeof ClientRoute
+    }
+    '/client/settings': {
+      id: '/client/settings'
+      path: '/settings'
+      fullPath: '/client/settings'
+      preLoaderRoute: typeof ClientSettingsRouteImport
+      parentRoute: typeof ClientRoute
+    }
+    '/client/category/$category': {
+      id: '/client/category/$category'
+      path: '/category/$category'
+      fullPath: '/client/category/$category'
+      preLoaderRoute: typeof ClientCategoryCategoryRouteImport
+      parentRoute: typeof ClientRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminActivityRoute: typeof AdminActivityRoute
+  AdminApprovedRoute: typeof AdminApprovedRoute
+  AdminFilesRoute: typeof AdminFilesRoute
+  AdminPendingRoute: typeof AdminPendingRoute
+  AdminRejectedRoute: typeof AdminRejectedRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminActivityRoute: AdminActivityRoute,
+  AdminApprovedRoute: AdminApprovedRoute,
+  AdminFilesRoute: AdminFilesRoute,
+  AdminPendingRoute: AdminPendingRoute,
+  AdminRejectedRoute: AdminRejectedRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface ClientRouteChildren {
+  ClientDocumentsRoute: typeof ClientDocumentsRoute
+  ClientSettingsRoute: typeof ClientSettingsRoute
+  ClientIndexRoute: typeof ClientIndexRoute
+  ClientCategoryCategoryRoute: typeof ClientCategoryCategoryRoute
+}
+
+const ClientRouteChildren: ClientRouteChildren = {
+  ClientDocumentsRoute: ClientDocumentsRoute,
+  ClientSettingsRoute: ClientSettingsRoute,
+  ClientIndexRoute: ClientIndexRoute,
+  ClientCategoryCategoryRoute: ClientCategoryCategoryRoute,
+}
+
+const ClientRouteWithChildren =
+  ClientRoute._addFileChildren(ClientRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  AdminRoute: AdminRouteWithChildren,
+  ClientRoute: ClientRouteWithChildren,
+  FonctionnalitesRoute: FonctionnalitesRoute,
+  LoginRoute: LoginRoute,
+  SolutionsRoute: SolutionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
