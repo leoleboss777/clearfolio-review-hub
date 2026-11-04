@@ -1,5 +1,5 @@
 // Local-only file storage (IndexedDB). Files never leave the browser.
-const DB_NAME = "kyc62-files";
+const DB_NAME = "sesame62-files";
 const STORE = "files";
 
 function openDb(): Promise<IDBDatabase> {

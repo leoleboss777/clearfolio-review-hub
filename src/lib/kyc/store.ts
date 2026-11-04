@@ -9,8 +9,8 @@ import type { Activity, CategoryId, Client, KycDocument, KycState, Session } fro
  * Both client and admin spaces read/write the same state, so decisions
  * propagate instantly in the same tab and via the `storage` event in other tabs.
  */
-const STATE_KEY = "kyc62.state.v1";
-const SESSION_KEY = "kyc62.session.v1";
+const STATE_KEY = "sesame62.state.v1";
+const SESSION_KEY = "sesame62.session.v1";
 
 let state: KycState | null = null;
 let session: Session | null | undefined;
@@ -62,7 +62,7 @@ function commit(next: KycState) {
   try {
     localStorage.setItem(STATE_KEY, JSON.stringify(next));
   } catch (e) {
-    console.warn("KYC62: unable to persist state", e);
+    console.warn("SESAME62: unable to persist state", e);
   }
   emit();
 }

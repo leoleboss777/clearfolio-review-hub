@@ -124,7 +124,7 @@ export function AdminShell({ session, children }: { session: Session; children: 
               <Menu className="size-5" />
             </button>
             <p className="text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">KYC62</span> · Back-office conformité
+              <span className="font-semibold text-foreground">SESAME62</span> · Back-office conformité
             </p>
           </div>
           <div className="flex items-center gap-3">

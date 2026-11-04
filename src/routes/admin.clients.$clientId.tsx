@@ -16,9 +16,9 @@ import { Textarea } from "@/components/ui/textarea";
 export const Route = createFileRoute("/admin/clients/$clientId")({
   head: () => ({
     meta: [
-      { title: "Dossier client — Administration KYC62" },
+      { title: "Dossier client — Administration SESAME62" },
       { name: "description", content: "Détail du dossier KYC d'un client." },
-      { property: "og:title", content: "Dossier client — KYC62" },
+      { property: "og:title", content: "Dossier client — SESAME62" },
       { property: "og:description", content: "Détail du dossier KYC d'un client." },
     ],
   }),

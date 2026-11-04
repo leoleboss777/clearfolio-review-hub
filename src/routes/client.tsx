@@ -5,9 +5,9 @@ import { useKycState, useSession } from "@/lib/kyc/store";
 export const Route = createFileRoute("/client")({
   head: () => ({
     meta: [
-      { title: "Espace client — KYC62" },
+      { title: "Espace client — SESAME62" },
       { name: "description", content: "Déposez vos justificatifs et suivez la validation de votre dossier KYC." },
-      { property: "og:title", content: "Espace client — KYC62" },
+      { property: "og:title", content: "Espace client — SESAME62" },
       { property: "og:description", content: "Votre espace de dépôt et de suivi des documents KYC." },
       { name: "robots", content: "noindex" },
     ],

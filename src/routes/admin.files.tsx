@@ -5,9 +5,9 @@ import { DocumentsTable } from "@/components/kyc/admin/DocumentsTable";
 export const Route = createFileRoute("/admin/files")({
   head: () => ({
     meta: [
-      { title: "All KYC Files — Administration KYC62" },
+      { title: "All KYC Files — Administration SESAME62" },
       { name: "description", content: "Tous les documents KYC transmis par les clients." },
-      { property: "og:title", content: "All KYC Files — KYC62" },
+      { property: "og:title", content: "All KYC Files — SESAME62" },
       { property: "og:description", content: "Tous les documents KYC transmis." },
     ],
   }),

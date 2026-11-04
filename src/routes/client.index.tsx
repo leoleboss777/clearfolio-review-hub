@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/client/")({
   head: () => ({
     meta: [
-      { title: "Overview — Espace client KYC62" },
+      { title: "Overview — Espace client SESAME62" },
       { name: "description", content: "Vue d'ensemble de votre dossier KYC." },
-      { property: "og:title", content: "Overview — KYC62" },
+      { property: "og:title", content: "Overview — SESAME62" },
       { property: "og:description", content: "Vue d'ensemble de votre dossier KYC." },
     ],
   }),

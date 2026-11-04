@@ -25,9 +25,9 @@ import {
 export const Route = createFileRoute("/admin/documents/$docId")({
   head: () => ({
     meta: [
-      { title: "Examen du document — Administration KYC62" },
+      { title: "Examen du document — Administration SESAME62" },
       { name: "description", content: "Aperçu et décision de validation d'un document KYC." },
-      { property: "og:title", content: "Examen du document — KYC62" },
+      { property: "og:title", content: "Examen du document — SESAME62" },
       { property: "og:description", content: "Aperçu et décision de validation d'un document KYC." },
     ],
   }),

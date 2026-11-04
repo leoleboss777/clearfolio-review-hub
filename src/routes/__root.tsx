@@ -79,12 +79,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "KYC62 — Centralisation et validation des documents KYC" },
+      { title: "SESAME62 — Centralisation et validation des documents KYC" },
       {
         name: "description",
-        content: "KYC62 centralise la collecte et la validation des justificatifs KYC de vos clients.",
+        content: "SESAME62 centralise la collecte et la validation des justificatifs KYC de vos clients.",
       },
-      { name: "author", content: "KYC62" },
+      { name: "author", content: "SESAME62" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

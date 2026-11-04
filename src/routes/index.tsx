@@ -16,13 +16,13 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "KYC62 — Simplifiez la gestion de vos vérifications KYC" },
+      { title: "SESAME62 — Simplifiez la gestion de vos vérifications KYC" },
       {
         name: "description",
         content:
-          "KYC62 centralise vos documents administratifs et facilite leur validation grâce à une plateforme unique pour les entreprises et leurs clients.",
+          "SESAME62 centralise vos documents administratifs et facilite leur validation grâce à une plateforme unique pour les entreprises et leurs clients.",
       },
-      { property: "og:title", content: "KYC62 — Simplifiez vos vérifications KYC" },
+      { property: "og:title", content: "SESAME62 — Simplifiez vos vérifications KYC" },
       {
         property: "og:description",
         content: "Collecte, organisation et validation des justificatifs KYC sur une plateforme unique.",
@@ -70,7 +70,7 @@ function Index() {
               Simplifiez la gestion de vos vérifications KYC.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-              KYC62 centralise vos documents administratifs et facilite leur validation grâce à une
+              SESAME62 centralise vos documents administratifs et facilite leur validation grâce à une
               plateforme unique dédiée aux entreprises et à leurs clients.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
@@ -94,7 +94,7 @@ function Index() {
         <SectionHeading
           eyebrow="La plateforme"
           title="Du dépôt à la validation, un seul flux."
-          text="KYC62 relie vos clients et vos équipes conformité autour des mêmes dossiers."
+          text="SESAME62 relie vos clients et vos équipes conformité autour des mêmes dossiers."
         />
         <div className="mt-14 grid gap-4 md:grid-cols-2">
           {FEATURES.map((f) => (

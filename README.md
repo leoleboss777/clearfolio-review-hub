@@ -1,10 +1,10 @@
 # Clearfolio Review Hub
 
-KYC62 — Plateforme B2B de centralisation et validation des documents KYC
+SESAME62 — Plateforme B2B de centralisation et validation des documents KYC
 
 1. Présentation du projet
 
-Créer une plateforme SaaS appelée KYC62, spécialisée dans la centralisation, la collecte, l'organisation et la validation des documents KYC (Know Your Customer).
+Créer une plateforme SaaS appelée SESAME62, spécialisée dans la centralisation, la collecte, l'organisation et la validation des documents KYC (Know Your Customer).
 
 La plateforme s'adresse aux entreprises qui souhaitent collecter les justificatifs de leurs clients, les examiner et valider ou refuser chaque document depuis une interface administrateur.
 
@@ -18,7 +18,7 @@ IMPORTANT : Il s'agit d'un prototype frontend uniquement, sans backend ni base d
 
 2. Identité visuelle et direction artistique
 
-Créer une identité visuelle professionnelle et reconnaissable pour KYC62.
+Créer une identité visuelle professionnelle et reconnaissable pour SESAME62.
 
 L'univers graphique doit évoquer la Fintech, la conformité réglementaire, la confiance et la gestion documentaire.
 
@@ -114,11 +114,11 @@ Privilégier les tableaux, les listes, les filtres, les panneaux latéraux et le
 
 3. Landing page
 
-Créer une page d'accueil professionnelle présentant KYC62.
+Créer une page d'accueil professionnelle présentant SESAME62.
 
 Header :
 
-Logo KYC62.
+Logo SESAME62.
 
 Accueil.
 
@@ -136,7 +136,7 @@ Titre :
 « Simplifiez la gestion de vos vérifications KYC. »
 
 Sous-titre :
-« KYC62 centralise vos documents administratifs et facilite leur validation grâce à une plateforme unique dédiée aux entreprises et à leurs clients. »
+« SESAME62 centralise vos documents administratifs et facilite leur validation grâce à une plateforme unique dédiée aux entreprises et à leurs clients. »
 
 Boutons :
 
@@ -310,7 +310,7 @@ Ces statuts doivent être cohérents avec les décisions prises dans l'espace ad
 
 6. ESPACE ADMINISTRATEUR — PRIORITÉ IMPORTANTE
 
-Créer un véritable espace de gestion professionnelle destiné aux entreprises qui utilisent KYC62 pour examiner les dossiers de leurs clients.
+Créer un véritable espace de gestion professionnelle destiné aux entreprises qui utilisent SESAME62 pour examiner les dossiers de leurs clients.
 
 Cet espace doit être indépendant visuellement du dashboard client.
 
@@ -584,7 +584,7 @@ L'espace administrateur doit privilégier l'utilisation sur ordinateur, avec des
 
 10. Résultat final attendu
 
-Je veux une plateforme KYC62 complète et interactive, composée de deux univers complémentaires :
+Je veux une plateforme SESAME62 complète et interactive, composée de deux univers complémentaires :
 
 ESPACE CLIENT :
 Une interface moderne, premium et technologique, permettant de déposer et de suivre ses documents.

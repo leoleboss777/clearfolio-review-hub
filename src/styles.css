@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * KYC62 design system.
+ * SESAME62 design system.
  * :root            → client space + marketing (deep black / night blue, electric accent)
  * .theme-admin     → admin back-office (white / light grey / navy, sober)
  * All colors in oklch.

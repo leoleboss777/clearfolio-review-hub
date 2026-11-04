@@ -11,7 +11,7 @@ export function HeroIllustration() {
           <span className="size-2.5 rounded-full bg-warning/70" />
           <span className="size-2.5 rounded-full bg-success/70" />
           <span className="ml-3 rounded-md bg-muted px-3 py-0.5 font-mono text-[11px] text-muted-foreground">
-            app.kyc62.com/overview
+            app.sesame62.com/overview
           </span>
         </div>
         <div className="grid grid-cols-12">
@@ -81,7 +81,7 @@ export function HeroIllustration() {
         </div>
       </div>
 
-      <div className="glass animate-float absolute -left-4 top-1/3 hidden w-56 rounded-xl p-3 md:block">
+      <div className="animate-float absolute -left-4 bottom-6 border border-border bg-card shadow-lg hidden w-56 rounded-xl p-3 md:block">
         <div className="flex items-center gap-2">
           <span className="flex size-8 items-center justify-center rounded-full bg-success/15 text-success">
             <Check className="size-4" strokeWidth={3} />
@@ -93,7 +93,7 @@ export function HeroIllustration() {
         </div>
       </div>
       <div
-        className="glass animate-float absolute -right-4 bottom-10 hidden w-60 rounded-xl p-3 md:block"
+        className="animate-float absolute -right-4 -bottom-6 border border-border bg-card shadow-lg hidden w-60 rounded-xl p-3 md:block"
         style={{ animationDelay: "1.5s" }}
       >
         <div className="flex items-center gap-2">

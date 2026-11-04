@@ -20,9 +20,9 @@ import {
 export const Route = createFileRoute("/admin/settings")({
   head: () => ({
     meta: [
-      { title: "Settings — Administration KYC62" },
-      { name: "description", content: "Paramètres de l'espace administrateur KYC62." },
-      { property: "og:title", content: "Settings — KYC62" },
+      { title: "Settings — Administration SESAME62" },
+      { name: "description", content: "Paramètres de l'espace administrateur SESAME62." },
+      { property: "og:title", content: "Settings — SESAME62" },
       { property: "og:description", content: "Paramètres administrateur." },
     ],
   }),
@@ -44,7 +44,7 @@ function Settings() {
             <dt className="text-muted-foreground">Rôle</dt>
             <dd className="col-span-2">Administrateur — Compliance Officer</dd>
             <dt className="text-muted-foreground">Organisation</dt>
-            <dd className="col-span-2">KYC62 Démo SAS</dd>
+            <dd className="col-span-2">SESAME62 Démo SAS</dd>
           </dl>
         </Panel>
         <Panel title="Motifs de refus">
