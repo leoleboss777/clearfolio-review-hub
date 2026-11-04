@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { ArrowLeft, CheckCircle2, XCircle, Download, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 import { approveDocument, rejectDocument, useKycState } from "@/lib/kyc/store";
@@ -203,7 +203,7 @@ function DocumentReview() {
   );
 }
 
-function Info({ k, v }: { k: string; v: React.ReactNode }) {
+function Info({ k, v }: { k: string; v: ReactNode }) {
   return (
     <div className="flex items-start justify-between gap-4 px-4 py-2.5">
       <dt className="text-muted-foreground">{k}</dt>
