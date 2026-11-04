@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/solutions")({
   head: () => ({
     meta: [
-      { title: "Solutions entreprises — KYC62" },
+      { title: "Solutions entreprises — SESAME62" },
       { name: "description", content: "Un back-office de conformité pour examiner, valider ou refuser les justificatifs de vos clients." },
-      { property: "og:title", content: "Solutions entreprises — KYC62" },
+      { property: "og:title", content: "Solutions entreprises — SESAME62" },
       { property: "og:description", content: "Le back-office KYC pensé pour les équipes conformité." },
     ],
   }),
@@ -28,7 +28,7 @@ function Page() {
         <SectionHeading
           eyebrow="Solutions entreprises"
           title="Le back-office de vos équipes conformité."
-          text="Banques, assurances, agences immobilières, cabinets : KYC62 s'adapte à vos processus de vérification."
+          text="Banques, assurances, agences immobilières, cabinets : SESAME62 s'adapte à vos processus de vérification."
         />
         <div className="mt-14 grid gap-4 md:grid-cols-3">
           {BLOCKS.map(([Icon, title, text]) => (

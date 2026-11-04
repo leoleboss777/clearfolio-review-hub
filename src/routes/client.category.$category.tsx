@@ -15,9 +15,9 @@ export const Route = createFileRoute("/client/category/$category")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.label ?? "Catégorie"} — Espace client KYC62` },
+      { title: `${loaderData?.label ?? "Catégorie"} — Espace client SESAME62` },
       { name: "description", content: "Justificatifs de cette catégorie et leur statut de validation." },
-      { property: "og:title", content: `${loaderData?.label ?? "Catégorie"} — KYC62` },
+      { property: "og:title", content: `${loaderData?.label ?? "Catégorie"} — SESAME62` },
       { property: "og:description", content: "Justificatifs KYC par catégorie." },
     ],
   }),

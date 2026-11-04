@@ -4,9 +4,9 @@ import { MarketingShell, SectionHeading } from "@/components/kyc/MarketingShell"
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
     meta: [
-      { title: "À propos — KYC62" },
-      { name: "description", content: "KYC62, plateforme B2B de centralisation et validation des documents KYC." },
-      { property: "og:title", content: "À propos — KYC62" },
+      { title: "À propos — SESAME62" },
+      { name: "description", content: "SESAME62, plateforme B2B de centralisation et validation des documents KYC." },
+      { property: "og:title", content: "À propos — SESAME62" },
       { property: "og:description", content: "Notre mission : rendre la conformité KYC simple et transparente." },
     ],
   }),
@@ -23,7 +23,7 @@ function Page() {
         />
         <div className="glass mt-12 space-y-5 rounded-2xl p-8 text-muted-foreground">
           <p>
-            KYC62 est née d'un constat simple : la collecte des justificatifs clients reste
+            SESAME62 est née d'un constat simple : la collecte des justificatifs clients reste
             dispersée entre e-mails, pièces jointes et relances. Les équipes perdent du temps, les
             clients ne savent pas où en est leur dossier.
           </p>
@@ -33,7 +33,7 @@ function Page() {
           </p>
           <p className="text-sm text-muted-foreground/80">
             Cette version est un prototype de démonstration : les données sont simulées et
-            conservées uniquement dans votre navigateur. KYC62 ne réalise ici aucune vérification
+            conservées uniquement dans votre navigateur. SESAME62 ne réalise ici aucune vérification
             d'identité réelle et ne fournit pas de stockage sécurisé.
           </p>
         </div>

@@ -2,7 +2,7 @@ import type { Activity, AdminComment, CategoryId, Client, DocStatus, KycDocument
 import { docTypeLabel } from "./catalog";
 
 export const ADMIN_NAME = "Sophie Laurent";
-export const ADMIN_EMAIL = "admin@kyc62.com";
+export const ADMIN_EMAIL = "admin@sesame62.com";
 export const DEMO_CLIENT_EMAIL = "camille.martin@exemple.fr";
 export const STATE_VERSION = 1;
 

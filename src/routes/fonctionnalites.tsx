@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/fonctionnalites")({
   head: () => ({
     meta: [
-      { title: "Fonctionnalités — KYC62" },
+      { title: "Fonctionnalités — SESAME62" },
       { name: "description", content: "Dépôt de justificatifs, classement par catégorie, validation et suivi des documents KYC." },
-      { property: "og:title", content: "Fonctionnalités — KYC62" },
-      { property: "og:description", content: "Toutes les fonctionnalités de la plateforme KYC62." },
+      { property: "og:title", content: "Fonctionnalités — SESAME62" },
+      { property: "og:description", content: "Toutes les fonctionnalités de la plateforme SESAME62." },
     ],
   }),
   component: Page,

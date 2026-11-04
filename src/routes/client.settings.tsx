@@ -12,9 +12,9 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/client/settings")({
   head: () => ({
     meta: [
-      { title: "Settings — Espace client KYC62" },
-      { name: "description", content: "Vos informations personnelles KYC62." },
-      { property: "og:title", content: "Settings — KYC62" },
+      { title: "Settings — Espace client SESAME62" },
+      { name: "description", content: "Vos informations personnelles SESAME62." },
+      { property: "og:title", content: "Settings — SESAME62" },
       { property: "og:description", content: "Paramètres de votre compte client." },
     ],
   }),

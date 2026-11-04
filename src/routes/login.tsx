@@ -13,10 +13,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Connexion — KYC62" },
-      { name: "description", content: "Accédez à votre espace client ou administrateur KYC62." },
-      { property: "og:title", content: "Connexion — KYC62" },
-      { property: "og:description", content: "Connexion à l'espace client ou administrateur KYC62." },
+      { title: "Connexion — SESAME62" },
+      { name: "description", content: "Accédez à votre espace client ou administrateur SESAME62." },
+      { property: "og:title", content: "Connexion — SESAME62" },
+      { property: "og:description", content: "Connexion à l'espace client ou administrateur SESAME62." },
     ],
   }),
   component: LoginPage,

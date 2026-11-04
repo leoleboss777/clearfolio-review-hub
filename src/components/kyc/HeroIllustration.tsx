@@ -11,7 +11,7 @@ export function HeroIllustration() {
           <span className="size-2.5 rounded-full bg-warning/70" />
           <span className="size-2.5 rounded-full bg-success/70" />
           <span className="ml-3 rounded-md bg-muted px-3 py-0.5 font-mono text-[11px] text-muted-foreground">
-            app.kyc62.com/overview
+            app.sesame62.com/overview
           </span>
         </div>
         <div className="grid grid-cols-12">

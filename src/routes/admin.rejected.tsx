@@ -5,9 +5,9 @@ import { DocumentsTable } from "@/components/kyc/admin/DocumentsTable";
 export const Route = createFileRoute("/admin/rejected")({
   head: () => ({
     meta: [
-      { title: "Rejected Documents — Administration KYC62" },
+      { title: "Rejected Documents — Administration SESAME62" },
       { name: "description", content: "Documents KYC refusés et leurs motifs." },
-      { property: "og:title", content: "Rejected Documents — KYC62" },
+      { property: "og:title", content: "Rejected Documents — SESAME62" },
       { property: "og:description", content: "Documents KYC refusés." },
     ],
   }),

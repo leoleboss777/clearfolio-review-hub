@@ -17,7 +17,7 @@ export function MarketingShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
-          <Link to="/" aria-label="KYC62 — accueil">
+          <Link to="/" aria-label="SESAME62 — accueil">
             <Logo />
           </Link>
           <nav className="hidden items-center gap-1 md:flex">
@@ -93,7 +93,7 @@ export function MarketingShell({ children }: { children: ReactNode }) {
           </div>
         </div>
         <div className="border-t border-border/60 py-5 text-center text-xs text-muted-foreground">
-          © 2026 KYC62 — Pas-de-Calais, France
+          © 2026 SESAME62 — Pas-de-Calais, France
         </div>
       </footer>
     </div>

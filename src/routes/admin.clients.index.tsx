@@ -11,9 +11,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/admin/clients/")({
   head: () => ({
     meta: [
-      { title: "Clients — Administration KYC62" },
+      { title: "Clients — Administration SESAME62" },
       { name: "description", content: "Liste des clients et état de leur dossier KYC." },
-      { property: "og:title", content: "Clients — KYC62" },
+      { property: "og:title", content: "Clients — SESAME62" },
       { property: "og:description", content: "Liste des clients et état de leur dossier KYC." },
     ],
   }),

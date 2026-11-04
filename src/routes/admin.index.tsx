@@ -24,9 +24,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/admin/")({
   head: () => ({
     meta: [
-      { title: "Dashboard — Administration KYC62" },
+      { title: "Dashboard — Administration SESAME62" },
       { name: "description", content: "Indicateurs de traitement des dossiers KYC." },
-      { property: "og:title", content: "Dashboard — KYC62" },
+      { property: "og:title", content: "Dashboard — SESAME62" },
       { property: "og:description", content: "Indicateurs de traitement des dossiers KYC." },
     ],
   }),

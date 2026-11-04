@@ -7,9 +7,9 @@ import { ActivityTable } from "@/components/kyc/admin/ActivityTable";
 export const Route = createFileRoute("/admin/activity")({
   head: () => ({
     meta: [
-      { title: "Activity Log — Administration KYC62" },
+      { title: "Activity Log — Administration SESAME62" },
       { name: "description", content: "Journal d'activité : dépôts, validations, refus." },
-      { property: "og:title", content: "Activity Log — KYC62" },
+      { property: "og:title", content: "Activity Log — SESAME62" },
       { property: "og:description", content: "Journal d'activité des dossiers KYC." },
     ],
   }),

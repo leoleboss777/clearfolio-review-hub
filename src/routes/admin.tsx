@@ -5,9 +5,9 @@ import { useSession } from "@/lib/kyc/store";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Administration — KYC62" },
+      { title: "Administration — SESAME62" },
       { name: "description", content: "Back-office de vérification des documents KYC." },
-      { property: "og:title", content: "Administration — KYC62" },
+      { property: "og:title", content: "Administration — SESAME62" },
       { property: "og:description", content: "Back-office de vérification des documents KYC." },
       { name: "robots", content: "noindex" },
     ],
