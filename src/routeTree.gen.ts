@@ -26,6 +26,9 @@ import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as ClientIndexRouteImport } from './routes/client.index'
 import { Route as ClientDocumentsRouteImport } from './routes/client.documents'
 import { Route as ClientSettingsRouteImport } from './routes/client.settings'
+import { Route as AdminClientsIndexRouteImport } from './routes/admin.clients.index'
+import { Route as AdminClientsClientIdRouteImport } from './routes/admin.clients.$clientId'
+import { Route as AdminDocumentsDocIdRouteImport } from './routes/admin.documents.$docId'
 import { Route as ClientCategoryCategoryRouteImport } from './routes/client.category.$category'
 
 const IndexRoute = IndexRouteImport.update({
@@ -113,6 +116,21 @@ const ClientSettingsRoute = ClientSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => ClientRoute,
 } as any)
+const AdminClientsIndexRoute = AdminClientsIndexRouteImport.update({
+  id: '/clients/',
+  path: '/clients/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminClientsClientIdRoute = AdminClientsClientIdRouteImport.update({
+  id: '/clients/$clientId',
+  path: '/clients/$clientId',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDocumentsDocIdRoute = AdminDocumentsDocIdRouteImport.update({
+  id: '/documents/$docId',
+  path: '/documents/$docId',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ClientCategoryCategoryRoute = ClientCategoryCategoryRouteImport.update({
   id: '/category/$category',
   path: '/category/$category',
@@ -137,7 +155,10 @@ export interface FileRoutesByFullPath {
   '/client/settings': typeof ClientSettingsRoute
   '/admin/': typeof AdminIndexRoute
   '/client/': typeof ClientIndexRoute
+  '/admin/clients/$clientId': typeof AdminClientsClientIdRoute
+  '/admin/documents/$docId': typeof AdminDocumentsDocIdRoute
   '/client/category/$category': typeof ClientCategoryCategoryRoute
+  '/admin/clients/': typeof AdminClientsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -155,7 +176,10 @@ export interface FileRoutesByTo {
   '/client/settings': typeof ClientSettingsRoute
   '/admin': typeof AdminIndexRoute
   '/client': typeof ClientIndexRoute
+  '/admin/clients/$clientId': typeof AdminClientsClientIdRoute
+  '/admin/documents/$docId': typeof AdminDocumentsDocIdRoute
   '/client/category/$category': typeof ClientCategoryCategoryRoute
+  '/admin/clients': typeof AdminClientsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -176,7 +200,10 @@ export interface FileRoutesById {
   '/client/settings': typeof ClientSettingsRoute
   '/admin/': typeof AdminIndexRoute
   '/client/': typeof ClientIndexRoute
+  '/admin/clients/$clientId': typeof AdminClientsClientIdRoute
+  '/admin/documents/$docId': typeof AdminDocumentsDocIdRoute
   '/client/category/$category': typeof ClientCategoryCategoryRoute
+  '/admin/clients/': typeof AdminClientsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -198,7 +225,10 @@ export interface FileRouteTypes {
     | '/client/settings'
     | '/admin/'
     | '/client/'
+    | '/admin/clients/$clientId'
+    | '/admin/documents/$docId'
     | '/client/category/$category'
+    | '/admin/clients/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -216,7 +246,10 @@ export interface FileRouteTypes {
     | '/client/settings'
     | '/admin'
     | '/client'
+    | '/admin/clients/$clientId'
+    | '/admin/documents/$docId'
     | '/client/category/$category'
+    | '/admin/clients'
   id:
     | '__root__'
     | '/'
@@ -236,7 +269,10 @@ export interface FileRouteTypes {
     | '/client/settings'
     | '/admin/'
     | '/client/'
+    | '/admin/clients/$clientId'
+    | '/admin/documents/$docId'
     | '/client/category/$category'
+    | '/admin/clients/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -370,6 +406,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClientSettingsRouteImport
       parentRoute: typeof ClientRoute
     }
+    '/admin/clients/': {
+      id: '/admin/clients/'
+      path: '/clients'
+      fullPath: '/admin/clients/'
+      preLoaderRoute: typeof AdminClientsIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/clients/$clientId': {
+      id: '/admin/clients/$clientId'
+      path: '/clients/$clientId'
+      fullPath: '/admin/clients/$clientId'
+      preLoaderRoute: typeof AdminClientsClientIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/documents/$docId': {
+      id: '/admin/documents/$docId'
+      path: '/documents/$docId'
+      fullPath: '/admin/documents/$docId'
+      preLoaderRoute: typeof AdminDocumentsDocIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/client/category/$category': {
       id: '/client/category/$category'
       path: '/category/$category'
@@ -388,6 +445,9 @@ interface AdminRouteChildren {
   AdminRejectedRoute: typeof AdminRejectedRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminIndexRoute: typeof AdminIndexRoute
+  AdminClientsClientIdRoute: typeof AdminClientsClientIdRoute
+  AdminDocumentsDocIdRoute: typeof AdminDocumentsDocIdRoute
+  AdminClientsIndexRoute: typeof AdminClientsIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
@@ -398,6 +458,9 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminRejectedRoute: AdminRejectedRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminIndexRoute: AdminIndexRoute,
+  AdminClientsClientIdRoute: AdminClientsClientIdRoute,
+  AdminDocumentsDocIdRoute: AdminDocumentsDocIdRoute,
+  AdminClientsIndexRoute: AdminClientsIndexRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
