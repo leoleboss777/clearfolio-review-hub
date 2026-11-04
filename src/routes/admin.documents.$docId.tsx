@@ -101,7 +101,7 @@ function DocumentReview() {
       </Link>
       <AdminPageTitle
         title={docTypeLabel(doc.docType)}
-        subtitle={client ? `${client.firstName} ${client.lastName} · ${getCategory(doc.category)?.label ?? ""}` : undefined}
+        subtitle={client ? `${client.firstName} ${client.lastName} · ${getCategory(doc.category)?.label ?? ""}` : ""}
         action={<StatusBadge status={doc.status} className="text-sm" />}
       />
 
